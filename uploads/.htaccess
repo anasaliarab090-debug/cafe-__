@@ -1,0 +1,7 @@
+# Never run PHP files in this folder
+<FilesMatch "\.(php|phtml|phar)$">
+    Require all denied
+</FilesMatch>
+
+# Do not show a list of files
+Options -Indexes

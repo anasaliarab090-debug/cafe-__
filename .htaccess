@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# /menu → pages/menu.php (only if that page exists)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} ^(.+)/([a-z0-9-]+)$
+RewriteCond %1/pages/%2.php -f
+RewriteRule ^([a-z0-9-]+)$ pages/$1.php [L]
+
+# Page not found → pages/404.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ pages/404.php [L]
